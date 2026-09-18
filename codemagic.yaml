@@ -1,0 +1,19 @@
+workflows:
+  android-workflow:
+    name: Android Build
+    working_directory: Mals-bot
+    instance_type: mac_mini_m2
+    max_build_duration: 60
+    environment:
+      flutter: stable
+      xcode: latest
+      cocoapods: default
+    scripts:
+      - name: Get Flutter packages
+        script: |
+          flutter packages pub get
+      - name: Build Android APK
+        script: |
+          flutter build apk --debug
+    artifacts:
+      - build/**/outputs/**/*.apk
