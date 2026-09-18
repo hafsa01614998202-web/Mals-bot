@@ -11,9 +11,11 @@ workflows:
     scripts:
       - name: Get Flutter packages
         script: |
+          cd Mals-bot
           flutter packages pub get
       - name: Build Android APK
         script: |
+          cd Mals-bot
           flutter build apk --debug
     artifacts:
-      - build/**/outputs/**/*.apk
+      - Mals-bot/build/**/outputs/**/*.apk
